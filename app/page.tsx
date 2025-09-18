@@ -1,7 +1,8 @@
 "use client"
 
 
-import { useState, useEffect, useCallback } from "react"
+import { useState, useEffect } from "react"
+import { soundManager } from "@/lib/sounds"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -199,15 +200,29 @@ export default function VisionarioGame() {
     }
   }, [timeLeft, gameState, showFeedback])
 
-  const playSound = useCallback(
-    (type: "correct" | "wrong" | "background") => {
-      if (!soundEnabled) return
-      console.log(`Playing ${type} sound`)
-    },
-    [soundEnabled],
-  )
+  // Efecto para gestionar los sonidos
+  useEffect(() => {
+    soundManager.setEnabled(soundEnabled);
+  }, [soundEnabled]);
+
+  // Efecto para reproducir el sonido de pregunta y tensión cuando cambia la pregunta
+  useEffect(() => {
+    if (gameState === "playing" && !showFeedback) {
+      soundManager.playQuestion();
+      // Empezar la música de tensión después del sonido de la pregunta
+      const timer = setTimeout(() => {
+        soundManager.playTension();
+      }, 4000); // 4 segundos después, cuando termina el sonido de la pregunta
+      
+      return () => {
+        clearTimeout(timer);
+        soundManager.stopAll();
+      };
+    }
+  }, [currentQuestion, gameState, showFeedback]);
 
   const startGame = (teamId?: number) => {
+    soundManager.stopAll() // Asegurarnos de que no hay sonidos previos
     if (teamId) {
       setSelectedTeam(teamId)
     }
@@ -217,9 +232,8 @@ export default function VisionarioGame() {
     setTimeLeft(TOTAL_GAME_TIME)
     setSelectedAnswer(null)
     setShowFeedback(false)
-  setLifelines({ "fifty-fifty": true, "relevo": true, "consultar-equipo": true, "saltar": true })
+    setLifelines({ "fifty-fifty": true, "relevo": true, "consultar-equipo": true, "saltar": true })
     setHiddenOptions([])
-    playSound("background")
   }
 
   const handleAnswerSelect = (answerIndex: number) => {
@@ -233,9 +247,9 @@ export default function VisionarioGame() {
     if (isCorrect) {
       const points = currentQuestion < 5 ? 5 : 10
       setScore(score + points)
-      playSound("correct")
+      soundManager.playCorrect()
     } else {
-      playSound("wrong")
+      soundManager.playWrong()
     }
 
     setTimeout(() => {
@@ -248,6 +262,7 @@ export default function VisionarioGame() {
   }
 
   const nextQuestion = () => {
+    soundManager.stopAll() // Detener sonidos anteriores
     setCurrentQuestion(currentQuestion + 1)
     setSelectedAnswer(null)
     setShowFeedback(false)
@@ -255,6 +270,7 @@ export default function VisionarioGame() {
   }
 
   const endGame = () => {
+    soundManager.stopAll() // Detener todos los sonidos al terminar
     setGameState("finished")
   }
 
