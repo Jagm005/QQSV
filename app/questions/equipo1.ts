@@ -162,7 +162,7 @@ const equipo1Questions = [
       "Petrarca",  // Correcta (C = posición 2, intercambiada con B)
       "Boccaccio",
     ],
-    correct: 2,
+    correct: 0,
   },
   // Pregunta 16
   {
@@ -195,7 +195,7 @@ const equipo1Questions = [
       "Turguénev",  // Correcta (C = posición 2; intercambiada con B)
       "Dostoyevski",
     ],
-    correct: 2,
+    correct: 3,
   },
   // Pregunta 19
   {
