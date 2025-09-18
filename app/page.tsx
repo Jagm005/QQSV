@@ -582,16 +582,33 @@ export default function VisionarioGame() {
         </Dialog>
         {/* Dialogo de Consultar con tu equipo */}
         <Dialog open={showLifelineDialog === "consultar-equipo"} onOpenChange={() => setShowLifelineDialog(null)}>
-  <DialogContent className="bg-green-900 border-green-400 select-none" >
+  <DialogContent className="bg-green-900 border-green-400 select-none max-w-2xl w-full" >
             <DialogHeader>
               <DialogTitle className="text-white flex items-center justify-center select-none">
                 <Users className="h-5 w-5 mr-2 select-none" />
                 <span className="select-none">Consultar con tu equipo</span>
               </DialogTitle>
             </DialogHeader>
-            <div className="flex flex-col items-center justify-center p-8 select-none">
+            <div className="flex flex-col items-center p-8 gap-6 select-none">
+              <div className="bg-green-800 p-4 rounded-lg w-full">
+                <p className="text-white text-lg text-center font-medium mb-2 select-none">Pregunta:</p>
+                <p className="text-white text-center text-lg select-none">{questionsToShow[currentQuestion]?.question}</p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                {questionsToShow[currentQuestion]?.options.map((option, index) => (
+                  <div
+                    key={index}
+                    className="bg-green-800/50 p-4 rounded-lg select-none"
+                  >
+                    <Badge variant="secondary" className="bg-green-600 text-white mb-2 select-none">
+                      {String.fromCharCode(65 + index)}
+                    </Badge>
+                    <p className="text-white select-none">{option}</p>
+                  </div>
+                ))}
+              </div>
               <CircularTimer timeLeft={lifelineTimeLeft} totalTime={60} />
-              <p className="text-white mt-4 text-center select-none">Tienen 1 minuto para deliberar la respuesta.</p>
+              <p className="text-white text-center select-none">Tienen 1 minuto para deliberar la respuesta.</p>
             </div>
           </DialogContent>
         </Dialog>
