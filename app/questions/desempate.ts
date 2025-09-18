@@ -1,54 +1,54 @@
 // Preguntas de desempate (ocultas, solo para caso de empate)
 const desempateQuestions = [
   {
-    question: "¿Cuál es el único elemento químico que no tiene neutrones en su núcleo?",
-    options: ["Hidrógeno", "Helio", "Litio", "Berilio"],
-    correct: 0,
+    question: "¿Cómo se le conoce popularmente a Francisco José de Caldas?",
+    options: ["El Orgullo de Caldas", "Hijo de Caldas", "El Inteligente", "El Sabio Caldas"],
+    correct: 3, // D = El Sabio Caldas
   },
   {
-    question: "¿En qué año se firmó la Paz de Westfalia, que puso fin a la Guerra de los Treinta Años?",
-    options: ["1618", "1648", "1688", "1701"],
-    correct: 1,
+    question: "¿Cuántas estrellas tiene la bandera de China?",
+    options: ["5", "7", "2", "No tiene"],
+    correct: 0, // A = 5
   },
   {
-    question: "¿Cuál es el elemento químico con el símbolo 'W'?",
-    options: ["Wolframio", "Wismuto", "Wolframita", "Wurtzita"],
-    correct: 0,
+    question: "¿Cuántas válvulas tiene el corazón humano?",
+    options: ["Cuatro", "Dos", "Una", "Cinco"],
+    correct: 0, // A = Cuatro
   },
   {
-    question: "¿Qué matemático resolvió el último teorema de Fermat en 1994?",
-    options: ["Andrew Wiles", "Pierre de Fermat", "Leonhard Euler", "Carl Gauss"],
-    correct: 0,
+    question: "¿Cuándo se celebra el Día Mundial del Libro?",
+    options: ["El 8 de agosto", "El 4 de abril", "El 17 de septiembre", "El 23 de abril"],
+    correct: 3, // D = El 23 de abril
   },
   {
-    question: "¿Cuál es el país más pequeño del mundo en superficie?",
-    options: ["Mónaco", "Nauru", "San Marino", "Ciudad del Vaticano"],
-    correct: 3,
+    question: "¿En qué año murió Diana de Gales, también conocida como Lady Di?",
+    options: ["1999", "1998", "1997", "1996"],
+    correct: 2, // C = 1997
   },
   {
-    question: "¿Qué filósofo escribió 'El ser y la nada'?",
-    options: ["Jean-Paul Sartre", "Martin Heidegger", "Simone de Beauvoir", "Friedrich Nietzsche"],
-    correct: 0,
+    question: "¿Cómo termina la última estrofa del Himno Nacional de Colombia?",
+    options: ["“Deber antes que vida”, con llamas escribió", "Debajo los laureles seguridad buscó", "Si el sol alumbra a todos, justicia es libertad", "Comprende las palabras del que murió en la cruz"],
+    correct: 0, // A = “Deber antes que vida”, con llamas escribió
   },
   {
-    question: "¿Cuál es el lago más profundo del mundo?",
-    options: ["Tanganica", "Baikal", "Superior", "Victoria"],
-    correct: 1,
+    question: "¿Cuál es el signo del wolframio en la tabla periódica?",
+    options: ["Wm", "Wf", "Wl", "W"],
+    correct: 3, // D = W
   },
   {
-    question: "¿En qué año cayó Constantinopla en manos del Imperio Otomano?",
-    options: ["1204", "1299", "1453", "1492"],
-    correct: 2,
+    question: "¿Cuándo se fundó la ciudad de Bogotá?",
+    options: ["El 8 de octubre de 1558", "El 6 de agosto de 1538", "El 29 de julio de 1525", "El 17 de abril de 1525"],
+    correct: 1, // B = El 6 de agosto de 1538
   },
   {
-    question: "¿Qué científico propuso la teoría heliocéntrica?",
-    options: ["Copérnico", "Kepler", "Galileo", "Newton"],
-    correct: 0,
+    question: "¿Quién esculpió El Pensador?",
+    options: ["Antonio Canova", "Gian Lorenzo Bernini", "Auguste Rodin", "Henry Moore"],
+    correct: 2, // C = Auguste Rodin
   },
   {
-    question: "¿Cuál es el idioma oficial de Irán?",
-    options: ["Árabe", "Persa", "Kurdo", "Turco"],
-    correct: 1,
+    question: "¿Cuántos corazones tiene un pulpo?",
+    options: ["3", "4", "1", "2"],
+    correct: 0, // A = 3
   },
 ];
 
