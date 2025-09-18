@@ -1,4 +1,4 @@
-// Configuración de sonidos para el juego
+//Configuración de sonidos para el juego
 export const SOUNDS = {
   correct: "/sounds/correcta.mp3",
   wrong: "/sounds/Incorrecta.mp3",
