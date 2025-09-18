@@ -536,25 +536,30 @@ export default function VisionarioGame() {
               </CardContent>
             </Card>
             {/* Options */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 select-none">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 select-none w-full">
               {questionsToShow[currentQuestion]?.options.map((option, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
+                  className="w-full"
                 >
                   <Button
                     variant="outline"
                     size="lg"
                     onClick={() => handleAnswerSelect(index)}
                     disabled={showFeedback || hiddenOptions.includes(index)}
-                    className={`w-full p-6 text-left justify-start text-white border-amber-400 bg-gray-800/30 ${getButtonStyle(index)} select-none`}
+                    className={`w-full min-h-[80px] py-4 px-4 text-white border-amber-400 bg-gray-800/30 ${getButtonStyle(index)} select-none whitespace-normal`}
                   >
-                    <Badge variant="secondary" className="mr-4 bg-amber-500 text-black select-none">
-                      {String.fromCharCode(65 + index)}
-                    </Badge>
-                    <span className="select-none">{option}</span>
+                    <div className="flex items-start w-full gap-3">
+                      <Badge variant="secondary" className="bg-amber-500 text-black select-none shrink-0 h-8 w-8 flex items-center justify-center mt-1">
+                        {String.fromCharCode(65 + index)}
+                      </Badge>
+                      <div className="flex-1">
+                        <span className="select-none whitespace-normal break-normal text-base md:text-lg block w-full" style={{lineHeight: '1.3'}}>{option}</span>
+                      </div>
+                    </div>
                   </Button>
                 </motion.div>
               ))}
@@ -598,12 +603,16 @@ export default function VisionarioGame() {
                 {questionsToShow[currentQuestion]?.options.map((option, index) => (
                   <div
                     key={index}
-                    className="bg-green-800/50 p-4 rounded-lg select-none"
+                    className="bg-green-800/50 p-4 rounded-lg select-none w-full"
                   >
-                    <Badge variant="secondary" className="bg-green-600 text-white mb-2 select-none">
-                      {String.fromCharCode(65 + index)}
-                    </Badge>
-                    <p className="text-white select-none">{option}</p>
+                    <div className="flex items-start gap-3">
+                      <Badge variant="secondary" className="bg-green-600 text-white select-none shrink-0 h-7 w-7 flex items-center justify-center mt-1">
+                        {String.fromCharCode(65 + index)}
+                      </Badge>
+                      <div className="flex-1">
+                        <p className="text-white select-none whitespace-normal text-base md:text-lg" style={{lineHeight: '1.3'}}>{option}</p>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
